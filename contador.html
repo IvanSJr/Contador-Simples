@@ -10,25 +10,29 @@
 <body>
     <div id="app" >
         <h1>Contador</h1>
-        <button v-on:click="diminuir">-</button>
+        <button v-on:click="diminuir(parseInt(valor))">-</button>
         <span>{{numero}}</span>
-        <button v-on:click="somar">+</button>
+        <button v-on:click="somar(parseInt(valor))">+</button><br><br>
+        <label for="numero">Digite o número a ser acrescido ou diminuido</label><br>
+        <input v-model="valor" id="numero" type="text" name="numero">
+
     </div>
 
     <script>
         new Vue({
             el: '#app',
             data(){
+                valor: 1
                 return{
                     numero: 0
                 }
             },
             methods:{
-                somar(){
-                    this.numero += 1;
+                somar(valor){
+                    this.numero += valor;
                 },
-                diminuir(){
-                    this.numero -= 1;
+                diminuir(valor){
+                    this.numero -= valor;
                 }
             }
         })
