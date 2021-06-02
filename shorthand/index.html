@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-IF Shorthands</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="authentication">Bem vindo: {{usuario}}</h1>
+        <h1 v-else>Você está logado como visitante</h1>
+        <button @click="authentication = !authentication">
+            {{authentication ? 'Deslogar' : 'Logar'}}
+        </button>
+
+        <!-- <a v-bind:href="www.youtube.com"></a> -->
+        <a :href="www.youtube.com"></a>
+        <!-- <input v-bind:value="valor"> -->
+        <input :value="value">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return{
+                    usuario: 'Ivan Santos',
+                    authentication: false,
+                }
+            },
+        })
+    </script>
+</body>
+</html>
