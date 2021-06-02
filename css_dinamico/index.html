@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS DINÂMICO</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button class="box" v-on:click="mudaStatusBotao" v-bind:class="{ativo: btnStatus}">BOTÂO</button>
+        <button v-on:click="mudaStatusBotao">Ativar botão</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return{
+                    btnStatus: false
+                }
+            },
+            methods:{
+                mudaStatusBotao(){
+                    this.btnStatus = !this.btnStatus
+                    console.log(this.btnStatus)
+                },
+            },
+        })
+    </script>
+    <style>
+        #app{
+            display: flex;
+            justify-content: space-around;
+        }
+        .box{
+            background-color: red;
+            width: 350px;
+            height: 350px;
+            border: 0;
+            outline: none;
+        }
+
+        .ativo{
+            background-color: green;
+            border-radius: 50%;
+        }
+    </style>
+</body>
+</html>
