@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-ELSE-IF Shorthands</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="authentication">Bem vindo: {{usuario}}</h1>
+        <h1 v-else-if="visitante">Usuário Visitante</h1>
+        <h1 v-else>Nenhum usuário logado</h1>
+        <button @click="authentication = !authentication">
+            {{authentication ? 'Deslogar' : 'Logar'}}
+        </button>
+
+        <button @click="visitante = !visitante">
+            {{visitante ? 'Deslogar do visitante' : 'Entrar como visitante'}}
+        </button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return{
+                    usuario: 'Ivan Santos',
+                    authentication: false,
+                    visitante: true
+                }
+            },
+        })
+    </script>
+</body>
+</html>
